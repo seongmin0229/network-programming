@@ -50,14 +50,14 @@ class Buffer {
 		//if there is available contents, print the contents on screen (this is like consuming new contents), and notify
 		//set available to false
 		//return contents
-        while(true){
-			if(available) {
-				System.out.println("escape");
-				break;
+		if(!available){
+			try{
+				wait();
+			}catch(InterruptedException e){
 			}
-			System.out.println("polling");
 		}
-		System.out.println(contents);
+		System.out.println("Contents: " + contents);
+		notify();
 		available = false;
 		return contents;
 	}
@@ -66,14 +66,14 @@ class Buffer {
 		//if there is available contents, keep waiting
 		//if there is no available contents, store value to contents (this is like producing new contents), and notify
 		//set available to true
-		while(true){
-			if(!available) {
-				System.out.println("escape");
-				break;
+		if(available){
+			try{
+				wait();
+			}catch(InterruptedException e){
 			}
-			System.out.println("polling");
 		}
 		contents = value;
+		notify();
 		available = true;
 	}
 }
