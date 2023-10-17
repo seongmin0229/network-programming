@@ -12,9 +12,9 @@ public class StreamReaderWriterTest {
         OutputStreamWriter osw = null;
 
         try{
-            fis = new FileInputStream("C:\\Users\\leesu\\IdeaProjects\\networkprogramming\\src\\test4.rtf");
+            fis = new FileInputStream("C:\\Users\\leesu\\IdeaProjects\\networkprogramming\\src\\chapter2\\test4.rtf");
             isr = new InputStreamReader(fis, "EUC-KR");
-            osw = new OutputStreamWriter(System.out, "UTF-8");
+            osw = new OutputStreamWriter(System.out, "EUC-KR");
 
             char[] buffer = new char[512];
             int readcount = 0;

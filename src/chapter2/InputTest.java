@@ -1,5 +1,7 @@
 package chapter2;
 
+import java.io.IOException;
+
 public class InputTest {
     public static void main(String[] args){
 //        int inChar = 0;
@@ -8,6 +10,7 @@ public class InputTest {
 //        try{
 //            int i = 0;
 //            inChar = System.in.read();
+////            System.out.print(inChar + " ");
 //            System.out.write(inChar);
 //            System.out.flush();
 //        }catch (IOException e){
@@ -49,12 +52,12 @@ public class InputTest {
 
 
 
-//        try{
-//            byte[] b = new byte[System.in.available()];
-//            System.in.read(b);
-//        }catch(IOException e){
-//            System.err.println("error");
-//        }
+        try{
+            byte[] b = new byte[System.in.available()];
+            System.in.read(b);
+        }catch(IOException e){
+            System.err.println("error");
+        }
 
 
 

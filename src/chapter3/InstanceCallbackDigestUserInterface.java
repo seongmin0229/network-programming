@@ -8,15 +8,15 @@ public class InstanceCallbackDigestUserInterface {
         this.fileName = fileName;
     }
 
+    void receiveDigest(byte[] digest){
+        this.digest = digest;
+        System.out.println(this);
+    }
+
     public void calculateDigest(){
         InstanceCallbackDigest cb = new InstanceCallbackDigest(fileName, this);
         Thread t = new Thread(cb);
         t.start();
-    }
-
-    void receiveDigest(byte[] digest){
-        this.digest = digest;
-        System.out.println(this);
     }
 
     @Override

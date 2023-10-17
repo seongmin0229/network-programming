@@ -2,7 +2,7 @@ package chapter2;
 
 public class OutputStreamWriteTest {
     public static void main(String[] args) {
-        for(int i = 33; i < 300; i++){
+        for(int i = 0; i < 300; i++){
             System.out.print("write : ");
             System.out.write(i);    // read a least significant byte
             System.out.print("   ");
