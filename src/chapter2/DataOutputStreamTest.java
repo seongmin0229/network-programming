@@ -9,7 +9,7 @@ public class DataOutputStreamTest {
 
         boolean addTab = false;
 
-        fos = new FileOutputStream("C:\\Users\\leesu\\IdeaProjects\\networkprogramming\\src\\data.bin");
+        fos = new FileOutputStream("C:\\Users\\leesu\\IdeaProjects\\networkprogramming\\src\\chapter2\\data.bin");
         dos = new DataOutputStream(fos);
         dos.writeBoolean(false);
         if(addTab) dos.writeChar('\n');

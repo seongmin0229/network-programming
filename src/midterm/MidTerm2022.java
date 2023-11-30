@@ -5,16 +5,15 @@ import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 import static java.lang.Thread.sleep;
 
-class FileCountInterface implements Runnable{
+class FileCountInterface2022 implements Runnable{
     private String fileName;
     private Map map;
     private CountDownLatch latch;
 
-    public FileCountInterface(String fileName, Map map, CountDownLatch latch){
+    public FileCountInterface2022(String fileName, Map map, CountDownLatch latch){
         this.fileName = fileName;
         this.map = map;
         this.latch = latch;
@@ -53,7 +52,7 @@ class FileCountInterface implements Runnable{
                 }
             }
             System.out.println(Thread.currentThread());
-            System.out.println(map);
+            System.out.println(latch.getCount());
             latch.countDown();
 
         } catch (FileNotFoundException e) {
@@ -85,17 +84,19 @@ class FileCountInterface implements Runnable{
 }
 
 public class MidTerm2022{
-    public final static int THREAD_COUNT = 100;
+    public final static int THREAD_COUNT = 10;
     public static void main(String[] args) throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(THREAD_COUNT);
         Map<Integer, Integer> numMap = new HashMap<>();
         ExecutorService pool = Executors.newFixedThreadPool(THREAD_COUNT);
-        for(int i = 1; i <= 50; i++){
-            for(int j = 1; j <= 50; j++){
-                Runnable task = new FileCountInterface("C:\\Users\\LSM\\konkuk\\2023-2\\network-programming\\src\\Archive\\file (c="+i+")_(d="+j+").txt", numMap, latch);
-                pool.submit(task);
-            }
-        }
+//        for(int i = 20; i <= 30; i++){
+//            for(int j = 20; j <= 30; j++){
+//                Runnable task = new FileCountInterface("C:\\Users\\LSM\\konkuk\\2023-2\\network-programming\\src\\Archive\\file (c="+i+")_(d="+j+").txt", numMap, latch);
+//                pool.submit(task);
+//            }
+//        }
+        Runnable task = new FileCountInterface2022("C:\\Users\\LSM\\konkuk\\2023-2\\network-programming\\src\\Archive\\file (c=1)_(d=26).txt", numMap, latch);
+        pool.submit(task);
 
         try{
             latch.await();
