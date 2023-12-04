@@ -54,6 +54,7 @@ public class JHTTP {
       System.out.println("Usage: java JHTTP docroot port");
       return;
     }
+    System.out.println("Document root is: " + docroot.getAbsolutePath());
     
     // set the port to listen on
     int port=80;
